@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>광운대학교 동북아문화산업학부 클론</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800">
+  <!-- 헤더 -->
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+      <div class="flex items-center space-x-4">
+        <img src="https://dnaci.kw.ac.kr/theme/basic/img/logo.png" alt="학부 로고" class="h-10">
+        <span class="text-xl font-bold text-gray-700">동북아문화산업학부</span>
+      </div>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#" class="hover:text-blue-500">학부소개</a>
+        <a href="#" class="hover:text-blue-500">교수진</a>
+        <a href="#" class="hover:text-blue-500">교과과정</a>
+        <a href="#" class="hover:text-blue-500">학부활동</a>
+        <a href="#" class="hover:text-blue-500">공지사항</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 메인 슬라이더 섹션 (단순 배경 이미지 대체) -->
+  <section class="bg-cover bg-center h-96" style="background-image: url('https://dnaci.kw.ac.kr/data/file/main/thumb-3222928016_Rbmw7GB7_5cbcded0712b5f9a240b8f1f23bc3f3c89eb6942_600x400.jpg');">
+    <div class="h-full flex items-center justify-center bg-black bg-opacity-30">
+      <h1 class="text-white text-4xl font-bold">디지털 콘텐츠를 이끄는 인재 양성</h1>
+    </div>
+  </section>
+
+  <!-- 공지사항 및 소개 -->
+  <section class="max-w-7xl mx-auto py-12 px-4">
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-2xl font-semibold mb-4">공지사항</h2>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-blue-600 hover:underline">2025-1학기 수강신청 안내</a></li>
+          <li><a href="#" class="text-blue-600 hover:underline">졸업논문 일정 공지</a></li>
+          <li><a href="#" class="text-blue-600 hover:underline">YLC 동아리 모집</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-2xl font-semibold mb-4">학부 소개</h2>
+        <p class="text-gray-700 leading-relaxed">
+          동북아문화산업학부는 문화콘텐츠와 디지털기술의 융합을 선도할 인재를 양성하는 학부입니다.
+          이론과 실무를 겸비한 교육과정과 창의적 프로젝트 중심 수업을 통해 현장에 강한 전문가를 배출합니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="bg-gray-100 text-gray-600 text-sm text-center py-6">
+    ⓒ 2025 Kwangwoon University Department of Northeast Asian Cultural Industry
+  </footer>
+</body>
+</html>
