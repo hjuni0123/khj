@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나의 포트폴리오 허브</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="w-60 bg-white shadow-md p-4 flex flex-col justify-between">
+      <div>
+        <h1 class="text-2xl font-bold mb-6">📁 HJUNILOG</h1>
+        <nav class="space-y-4">
+          <button onclick="showSection('todo')" class="w-full text-left hover:text-blue-500">✅ 오늘 할 일</button>
+          <button onclick="showSection('plan')" class="w-full text-left hover:text-blue-500">📝 장기 계획</button>
+          <button onclick="showSection('portfolio')" class="w-full text-left hover:text-blue-500">🎨 포트폴리오</button>
+          <button onclick="showSection('log')" class="w-full text-left hover:text-blue-500">📓 일지/기록</button>
+        </nav>
+      </div>
+      <p class="text-sm text-gray-400">© 2025 HJUNILOG</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6 overflow-y-auto">
+      <!-- Sections -->
+      <section id="todo" class="section">
+        <h2 class="text-xl font-bold mb-2">오늘의 할 일</h2>
+        <input id="taskInput" class="border p-2 w-full mb-2" type="text" placeholder="할 일 입력..." />
+        <button onclick="addTask()" class="bg-blue-500 text-white px-4 py-2 rounded">추가</button>
+        <ul id="taskList" class="mt-4 space-y-2"></ul>
+      </section>
+
+      <section id="plan" class="section hidden">
+        <h2 class="text-xl font-bold mb-2">장기 계획</h2>
+        <textarea id="planBox" class="w-full h-40 border p-2" placeholder="계획 작성..."></textarea>
+      </section>
+
+      <section id="portfolio" class="section hidden">
+        <h2 class="text-xl font-bold mb-2">포트폴리오 업로드</h2>
+        <input type="file" id="upload" class="mb-4" />
+        <div id="preview"></div>
+      </section>
+
+      <section id="log" class="section hidden">
+        <h2 class="text-xl font-bold mb-2">기록/노트</h2>
+        <textarea id="logBox" class="w-full h-40 border p-2" placeholder="일지 기록..."></textarea>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(el => el.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    // 할 일 추가 기능
+    function addTask() {
+      const input = document.getElementById('taskInput');
+      const task = input.value.trim();
+      if (task === '') return;
+      const li = document.createElement('li');
+      li.textContent = task;
+      li.className = "p-2 bg-white shadow rounded hover:bg-blue-50";
+      li.onclick = () => li.classList.toggle('line-through');
+      document.getElementById('taskList').appendChild(li);
+      input.value = '';
+    }
+
+    // 파일 업로드 프리뷰
+    const upload = document.getElementById('upload');
+    const preview = document.getElementById('preview');
+    if (upload) {
+      upload.addEventListener('change', () => {
+        const file = upload.files[0];
+        if (!file) return;
+        preview.innerHTML = `<p class='mb-2'>파일 이름: ${file.name}</p>`;
+        if (file.type.startsWith('image/')) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.className = "max-w-sm border rounded shadow";
+            preview.appendChild(img);
+          }
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
